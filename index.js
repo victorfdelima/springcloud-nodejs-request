@@ -1,3 +1,6 @@
+const { profile } = require("console");
+const { run } = require("jest");
+
 Config.load({
     // define o nome do aplicativo a ser usado ao consultar o servidor de configuração
     appName: "corporativo-backend-servicos",
@@ -15,7 +18,12 @@ Config.load({
     .then(() => { // no carregamento bem-sucedido, inicie seu aplicativo
         const app = express()
         app.get('/', function (req, res) {
-            res.send('Olá Mundo')
+            // if ("dev" == profile) {
+            //     return run.req("http://dev-cor-backend.sura-aws.com/corporativo-backend-servicos");
+
+            // } else {
+            //     return Error;
+            // }
         })
         app.listen(3000)
     })
